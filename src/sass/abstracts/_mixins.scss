@@ -1,0 +1,65 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin textOverflow($num-line) {
+  display: -webkit-box;
+  -webkit-line-clamp: $num-line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+//position
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// IMAGE
+@mixin img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@mixin aspectRatioImg($w, $h) {
+  &--#{$w}-#{$h} {
+    padding-top: aspectRatio($w, $h);
+  }
+}
+
+//MEDIA QUERIES MANAGER
+/*
+- sp : 0 - 600px;
+- tab-p : 600px -900px;
+- tab-l : 900 - 1200px;
+- bg : 1800px +
+ORDER CHANGE : base > typography > general layout > grid > page layout > component
+*/
+@mixin screen($break-point) {
+  @if $break-point == sp {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  }
+  @if $break-point == tab-p {
+    @media only screen and (max-width: 900px) {
+      @content;
+    }
+  }
+  @if $break-point == tab-l {
+    @media only screen and (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if $break-point == bg {
+    @media only screen and (min-width: 1800px) {
+      @content;
+    }
+  }
+}
