@@ -963,6 +963,7 @@ button {
 .nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0px 5%;
   position: fixed;
   width: 100%;
@@ -973,13 +974,47 @@ button {
     display: flex;
     align-items: center;
     flex: 1;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    z-index: 19; }
+    @media only screen and (max-width: 900px) {
+      .nav__menu {
+        display: none; }
+        .nav__menu--mobile {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          position: fixed;
+          top: 0;
+          right: -100%;
+          height: 100vh;
+          width: 60%;
+          padding: 50px 0  0 90px;
+          transition: right 0.3s ease-in-out;
+          background-color: #fff; } }
+    @media only screen and (max-width: 600px) {
+      .nav__menu--mobile {
+        width: 90%; } }
+    .nav__menu--mobile.active {
+      right: 0; }
   .nav__item:not(:last-child) {
     margin-right: 20px; }
   .nav__link {
     color: #000;
     font-weight: 600;
     transition: color 0.5s; }
+  .nav__menu--mobile .nav__item {
+    margin-right: 0; }
+    .nav__menu--mobile .nav__item:not(:last-child) {
+      margin-bottom: 15px; }
+  .nav .overlayBig {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 5; }
   .nav .logo img {
     height: 84px;
     transition: height 0.5s; }
@@ -993,7 +1028,6 @@ button {
 .hambuger-btn__wrap-line {
   width: 30px;
   height: 30px;
-  transform: translateY(-50%);
   transition: 0.3s ease transform;
   cursor: pointer; }
 
@@ -1016,13 +1050,16 @@ button {
 .hambuger-btn span:nth-of-type(3) {
   width: 75%; }
 
-input[type="checkbox"]:checked ~ .hambuger-btn__wrap-line {
-  transform: translateY(-50%) rotateZ(-90deg); }
+.hambuger-btn.active {
+  position: fixed;
+  z-index: 20;
+  top: 30px;
+  right: 30px; }
 
-.hambuger-btn input[type="checkbox"] {
-  display: none; }
+.hambuger-btn.active .hambuger-btn__wrap-line {
+  transform: rotateZ(-90deg); }
 
-input[type="checkbox"]:checked ~ .hambuger-btn__wrap-line span {
+.hambuger-btn.active .hambuger-btn__wrap-line span {
   width: 6px;
   margin-left: 12px;
   margin-bottom: 3px;
