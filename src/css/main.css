@@ -6,6 +6,7 @@
 ORDER CHANGE : base > typography > general layout > grid > page layout > component
 */
 /* general setting */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100&display=swap");
 *,
 *:after,
 *:before {
@@ -40,7 +41,7 @@ button {
 body {
   font-size: 1.6em;
   line-height: 1.5;
-  font-family: ""; }
+  font-family: "Roboto", sans-serif; }
 
 .u-flex {
   display: flex; }
@@ -954,10 +955,105 @@ body {
   .pl-s-12 {
     padding-left: 12rem; } }
 
-.hambuger-btn {
-  border: none !important;
+button {
+  border: none;
   outline: none;
   background: transparent; }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 5%;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  background-color: #fff;
+  transition: background-color 0.5s ease-in-out; }
+  .nav__menu {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end; }
+  .nav__item:not(:last-child) {
+    margin-right: 20px; }
+  .nav__link {
+    color: #000;
+    font-weight: 600;
+    transition: color 0.5s; }
+  .nav .logo img {
+    height: 84px;
+    transition: height 0.5s; }
+  .nav.is-sticky {
+    background-color: #000; }
+  .nav.is-sticky .nav__link {
+    color: #fff; }
+  .nav.is-sticky .logo img {
+    height: 64px; }
+
+.hambuger-btn__wrap-line {
+  width: 30px;
+  height: 30px;
+  transform: translateY(-50%);
+  transition: 0.3s ease transform;
+  cursor: pointer; }
+
+.hambuger-btn span {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: #143240;
+  margin-left: 0;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  transition: 0.3s ease width, 0.3s ease margin-left, 0.3s ease margin-bottom, 0.3s ease background-color; }
+
+.hambuger-btn span:nth-of-type(1) {
+  width: 50%; }
+
+.hambuger-btn span:nth-of-type(2) {
+  width: 100%; }
+
+.hambuger-btn span:nth-of-type(3) {
+  width: 75%; }
+
+input[type="checkbox"]:checked ~ .hambuger-btn__wrap-line {
+  transform: translateY(-50%) rotateZ(-90deg); }
+
+.hambuger-btn input[type="checkbox"] {
+  display: none; }
+
+input[type="checkbox"]:checked ~ .hambuger-btn__wrap-line span {
+  width: 6px;
+  margin-left: 12px;
+  margin-bottom: 3px;
+  background-color: #ffc107; }
+
+section {
+  height: 100vh;
+  padding: 20px 50px;
+  font-size: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900; }
+
+section:nth-of-type(1) {
+  margin-top: 84px;
+  background-color: #98ddca; }
+
+section:nth-of-type(2) {
+  background-color: #d5ecc2; }
+
+section:nth-of-type(3) {
+  background-color: #ffd3b4; }
+
+section:nth-of-type(4) {
+  background-color: #ffaaa7; }
+
+section:nth-of-type(5) {
+  background-color: #98ddca; }
+
+section:nth-of-type(6) {
+  background-color: #d5ecc2; }
 
 .container-full {
   width: 100%;
